@@ -1,12 +1,24 @@
+var p = document.getElementById('name');
+p.innerHTML = '';
+var n = 0;
 
-const myName = () => {
-    const name = "Raphael Limbikani Mbewe"
+var str = "Hello, I'm Raphael";
+var typeTimer = setInterval(function() {
+  n = n + 1;
+  p.innerHTML = " " + str.slice(0, n);
+  if (n === str.length) {
+    clearInterval(typeTimer);
+    p.innerHTML = " " + str;
+    n = 0;
+    setInterval(function() {
 
-if (name == "Raphael Limbikani Mbewe") {
-    return name;
-} else {
-    return "That's not your name";
-}
-}
-
-console.log(myName())
+      if (n === 0) {
+        p.innerHTML = " " + str + "|"
+        n = 1;
+      } else {
+        p.innerHTML = " " + str
+        n = 0;
+      };
+    }, 1000);
+  };
+}, 200)
